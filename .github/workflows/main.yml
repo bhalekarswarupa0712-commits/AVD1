@@ -1,14 +1,32 @@
-name: swar1
-
-on:
+name: pipelinee
+on :
   push:
     branches:
-      - main
-
+      -main
 jobs:
-  print-hello:
-    runs-on: ubuntu-latest
+ run-python-code:
+  runs-on:ubuntu-latest
 
-    steps:
-      - name: print
-        run: echo "saved"
+  steps:
+    -name:checkout code
+     uses:actions/checkout@v7
+
+   - name: print python version
+     run: python --version
+   - name: set up python version
+     uses: actions/setup-python@v7
+     with:
+     python-version: '3.13' 
+      
+  - name: print python version
+    run: python --version
+
+  - name: run python program
+    run: python welcome.py
+
+
+
+
+
+
+ 
