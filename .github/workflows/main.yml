@@ -1,32 +1,28 @@
 name: pipelinee
-on :
+
+on:
   push:
     branches:
-      -main
+      - main
+
 jobs:
- run-python-code:
-  runs-on:ubuntu-latest
+  run-python-code:
+    runs-on: ubuntu-latest
 
- steps:
-    -name:checkout code
-     uses:actions/checkout@v7
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
 
-   - name: print python version
-     run: python --version
-   - name: set up python version
-     uses: actions/setup-python@v7
-     with:
-     python-version: '3.13' 
-      
-  - name: print python version
-    run: python --version
+      - name: print python version
+        run: python --version
 
-  - name: run python program
-    run: python welcome.py
+      - name: set up python version
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
 
+      - name: print python version
+        run: python --version
 
-
-
-
-
- 
+      - name: run python program
+        run: python welcome.py
